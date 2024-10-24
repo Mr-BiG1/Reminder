@@ -14,6 +14,14 @@ To install and set up Reminder, follow these steps:
 To start the application, run the following command:
 `npm start`
 
+## Part 2: Raspberry Pi 5 Setup and Reverse Proxy Configuration
+
+This section will guide you through setting up your Reminder project on a Raspberry Pi 5, including configuring a reverse proxy using Nginx or Apache on Ubuntu Server OS. All steps will be covered in detail.
+
+### Prerequisites
+
+1. **Raspberry Pi 5** with Ubuntu Server OS installed.
+
 ## License
 
 Reminder is licensed under [LICENSE](License).
