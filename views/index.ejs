@@ -1,0 +1,38 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">Calendar</h1>
+
+            <form action="/set-reminder" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="email">Email address</label>
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                    </div>
+                    <br>
+                    <div class="form-group col-md-6">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" class="form-control" placeholder="Enter title">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description" cols="30" rows="5" class="form-control"
+                            placeholder="Enter description"></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="reminderTime">Reminder Time</label>
+                        <input type="datetime-local" id="reminderTime" name="reminderTime" class="form-control"
+                            required>
+                    </div>
+                </div>
+                <div class="text-center m-3">
+                    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-3">Add
+                        reminder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,99 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Expenses</h1>
+            </div>
+            <div class="text-end">
+                <a class="btn btn-success m-2" href="/reminderv1/new/expense/">New</a>
+            </div>
+            <% data.forEach(expenses=> { %>
+                <div class="card m-2">
+                    <div class="card-body">
+                        <div class="d-flex flex-row justify-content-between align-items-center">
+                            <div>
+                                <h4 class="card-title">
+                                    <%= expenses.title %>
+                                </h4>
+                            </div>
+                            <div class="text-end">
+                                <h5 class="card-text">
+                                    <span>
+                                        $<%= expenses.currentSpent %>
+                                    </span> /
+                                    <span>$<%= expenses.maximumAmount %></span>
+                                </h5>
+                            </div>
+                        </div>
+
+                        <div class="progress mt-3">
+                            <div class="progress-bar 
+                                <%= expenses.percentage >= 90 ? 'bg-danger' : expenses.percentage >= 70 ? 'bg-warning' : 'bg-success' %> 
+                                progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="<%= expenses.percentage %>" aria-valuemin="0" aria-valuemax="100"
+                                style="width: <%= expenses.percentage %>%"></div>
+                        </div>
+                        <p><span>
+                                <%= expenses.percentage %>
+                            </span> %</p>
+                        <div class="d-flex flex-row">
+                            <a href="#" class="btn btn-primary" type="button"
+                                onclick="openForm('<%= expenses._id %>')">Update</a>
+                            <a class="btn btn-danger m-2" href="/delete/expense/<%= expenses._id %>"
+                                onclick="return confirm('Are you sure you want to delete this expense?');">Delete</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form starts here -->
+                <div class="form-popup" id="myForm-<%= expenses._id %>" style="display: none;" aria-hidden="true">
+                    <form action="/update/expense/<%= expenses._id %>" class="form-container" method="post"
+                        onsubmit="return validateForm()">
+                        <h1>
+                            <%= expenses.title %>
+                        </h1>
+                        <div class="form-group">
+                            <label for="maxSpent"><b>Max Spent</b></label>
+                            <label for="maxSpent">
+                                $<%= expenses.maximumAmount %>
+                            </label>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="spentUpdate"><b>Spent Update</b></label>
+                            <input class="form-control" type="number" value="<%= expenses.currentSpent %>"
+                                placeholder="Enter new spent" name="currentSpent" required min="0" step="any">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-secondary" aria-hidden="true"
+                            onclick="closeForm('<%= expenses._id %>')">Close</button>
+                    </form>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+</section>
+
+<script>
+    function openForm(id) {
+        var form = document.getElementById(`myForm-${id}`);
+        form.style.display = "block";
+        form.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeForm(id) {
+        var form = document.getElementById(`myForm-${id}`);
+        form.style.display = "none";
+        form.setAttribute('aria-hidden', 'true');
+    }
+
+    function validateForm() {
+        var spentUpdate = document.querySelector("input[name='currentSpent']").value;
+        if (spentUpdate < 0) {
+            alert("Spent amount cannot be negative!");
+            return false;
+        }
+        return true;
+    }
+</script>

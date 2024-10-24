@@ -1,0 +1,38 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Calendar</h1>
+                <table class="table">
+                    <thead >
+                        <tr>
+                            <th>Title</th>
+                            <th>Time</th>
+                            <th>startTime</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach(events=> { %>
+                            <tr>
+                                <td>
+                                    <a href="/events/<%= events. _id %>">
+                                        <%= events.title %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= events.reminderTime %>
+                                </td>
+                                <td>
+                                    <%= events.startTime %>
+                                </td>
+                                <td>
+                                    <%= events.description %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</section>

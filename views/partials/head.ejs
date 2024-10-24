@@ -1,0 +1,50 @@
+<!-- nav section for the page  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand" href="/">remindwise</a>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" role="navigation">
+            <li><a type="button" class="btn text-hover-color m-2" href="/">Home</a></li>
+            <% if (!user) { %>
+                <li><a href="/user/login" type="button" class="btn text-hover-color m-2">Login</a></li>
+                <li><a href="/user/register" type="button" class="btn text-hover-color m-2">Register</a></li>
+                <% } else { %>
+                    <li><a href="/schedule" type="button" class="btn text-hover-color m-2">Reminders</a></li>
+                    <li><a href="/expense-keeper" type="button" class="btn text-hover-color m-2">Expense Keeper</a></li>
+                    <li><a href="/user/logout" type="button" class="btn text-hover-color m-2">Logout</a></li>
+                    <!-- Logout link -->
+                    <% } %>
+        </ul>
+
+        <form action="/search" method="post" class="d-flex">
+            <input class="form-control me-2" name="searchTerm" type="search" placeholder="Search reminders ">
+            <button class="btn text-hover-color border border-dark" type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- User Avatar and Name Section -->
+    <% if (user) { %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle user menu">
+            <span class="navbar-toggler-icon">
+                <img src="https://github.com/mdo.png" alt="User avatar" width="30" height="30" class="rounded-circle">
+            </span>
+        </button>
+
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <a href="#" class="align-items-center text-white text-decoration-none" id="dropdownUser1"
+                    aria-expanded="false">
+                    <span class="d-none d-sm-inline mx-1">
+                        <%= user.name %>
+                    </span> <!-- Display dynamic user name -->
+                </a>
+            </div>
+        </div>
+        <% } %>
+</nav>

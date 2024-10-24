@@ -1,0 +1,28 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="card-body ">
+                    <div class="col-md-12 text-center">
+                        <h1>Expense tracker</h1>
+                        <p>Track your expenses effortlessly and stay on top of your budget with our user-friendly expense tracker!</p>
+                    </div>
+                    <form class="container text-center" action="/reminderv1/new/expense/" method="post">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="title">Title:</label>
+                                <input type="text" name="title" placeholder="Enter the expense name" id="title" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="title">$ max amount:</label>
+                                <input type="number" name="monthlyExpenseLimit" id="title" placeholder="Enter monthly budget" class="form-control">
+                            </div>
+                        </div>
+                        <button data-mdb-ripple-init type="submit" class="btn btn-success text-center pl-3 pr-3">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

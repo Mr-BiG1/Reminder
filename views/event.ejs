@@ -1,0 +1,28 @@
+<h1><%= data.title %></h1>
+<article class="article">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Title</th>
+                <th>Reminder Time</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= data.title %></td>
+                <td><%= data.reminderTime %></td>
+                <td><%= data.description %></td>
+                <td>
+                    <!-- Delete button (JavaScript to handle DELETE request) -->
+                    <a class="btn btn-danger m-2" href="/delete/<%= data._id %>">Delete</a>
+
+                    <!-- Edit button -->
+                    <a class="btn btn-dark m-2" href="/update/<%= data._id %>">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</article>
+

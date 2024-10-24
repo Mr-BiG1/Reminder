@@ -1,0 +1,141 @@
+\/* Ensuring full height for html and body */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Adjusting navbar to avoid overlapping */
+.navbar {
+    margin-bottom: 0;
+}
+
+/* Sidebar column - making it sticky and scrollable */
+.col-auto.col-md-3.col-xl-2 {
+    height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+}
+
+/* Removing text decoration for list items and links */
+li, a {
+    text-decoration: none;
+}
+
+/* Placeholder text styles for larger screens */
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+/* Flexbox layout for full height and footer at bottom */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid {
+    flex: 1; 
+}
+
+footer {
+    margin-top: auto; 
+}
+
+/* Hover color change */
+.text-hover-color:hover {
+    color: #e0dddc; 
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Button for opening the form */
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+    transition: opacity 0.3s;
+}
+
+/* Popup form styling */
+.form-popup {
+    display: none; 
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 400px; 
+    padding: 20px;
+    border: 3px solid #f1f1f1;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Form container styling */
+.form-container {
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for form buttons */
+.form-container .btn {
+    background-color: #04AA6D; 
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+/* Cancel button style */
+.form-container .cancel {
+    background-color: red;
+}
+
+.form-container .btn, .form-container .cancel {
+    border-radius: 5px;
+    font-weight: bold; 
+    text-transform: uppercase; 
+}
+
+
+@media (max-width: 600px) {
+    .form-popup {
+        width: 90%; 
+        padding: 15px;
+    }
+
+    .form-container .btn {
+        padding: 12px 16px; 
+    }
+}
