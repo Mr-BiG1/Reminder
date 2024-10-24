@@ -16,7 +16,7 @@ To start the application, run the following command:
 
 ## License
 
-Reminder is licensed under [insert license].
+Reminder is licensed under [LICENSE](LICENSE).
 
 ## Contact
 
